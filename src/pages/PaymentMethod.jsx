@@ -1,18 +1,10 @@
-import { useAuth } from '../Components/Auth';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 import { FaSignOutAlt } from "react-icons/fa";
 import Sidebar from '../Components/Sidebar';
 
 const PaymentMethod = () => {
-    const auth = useAuth();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (!auth.user) {
-            navigate("/login", { replace: true }); // إعادة التوجيه إذا لم يكن هناك مستخدم مسجل
-        }
-    }, [auth.user, navigate]);
   return (
     <>
     <div className="flex h-screen bg-white">
@@ -29,10 +21,12 @@ const PaymentMethod = () => {
                         TAXI
                     </span>
                 </h1>
-                <button onClick={() => {
-                    auth.logout();
-                    navigate("/login", { replace: true }); // تسجيل الخروج وإعادة التوجيه
-                }}>
+                <button
+                //  onClick={() => {
+                //     auth.logout();
+                //     navigate("/login", { replace: true }); // تسجيل الخروج وإعادة التوجيه
+                // }}
+                >
                     <FaSignOutAlt size={20} />
                 </button>
             </div>

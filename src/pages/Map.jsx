@@ -1,18 +1,12 @@
-import { useAuth } from '../Components/Auth';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 import Head from '../Components/Head';
 import Sidebar from '../Components/Sidebar';
 
 const LiveMap = () => {
-    const auth = useAuth();
+    
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (!auth.user) {
-            navigate("/login", { replace: true }); // إعادة التوجيه إذا لم يكن هناك مستخدم مسجل
-        }
-    }, [auth.user, navigate]);
+
     return (
         <>
             <div className="flex h-screen bg-white">

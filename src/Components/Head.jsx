@@ -1,11 +1,12 @@
 import React from 'react'
 import { FaSignOutAlt } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../Components/Auth';
-
+import { UserTokenContext } from '../Context/UserTokenContext';
+import { useContext } from 'react';
 const Head = () => {
+    const userToken = useContext(UserTokenContext);
     const navigate = useNavigate();
-    const auth = useAuth();
+    
     
     return (
         <>
@@ -19,10 +20,13 @@ const Head = () => {
                         TAXI
                     </span>
                 </h1>
-                <button onClick={() => {
-                    auth.logout();
-                    navigate("/login", { replace: true }); // تسجيل الخروج وإعادة التوجيه
-                }}>
+                <button 
+                onClick={() => {
+                    localStorage.removeItem("token");  // حذف التوكن
+                    userToken.setToken(null);  // إعادة تعيين الحالة
+                    navigate("/login");  // توجيه المستخدم إلى صفحة تسجيل الدخول
+                }}
+                >
                     <FaSignOutAlt size={20} />
                 </button>
             </div>

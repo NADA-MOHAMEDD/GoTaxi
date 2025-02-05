@@ -41,8 +41,6 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import CurrentOrders from './pages/CurrentOrders';
 import CaptianRequests from './pages/CaptianRequests';
-import ProtectedRoute from "./Components/ProtectedRoute ";
-import { ContextProvider } from './Components/Auth';
 import ControlTrip from "./pages/ControlTrip";
 import CaptianTable from "./pages/CaptianTable";
 import ClientsTable from "./pages/ClientsTable";
@@ -53,31 +51,34 @@ import LiveMap from "./pages/Map";
 import ForgotPassword from "./pages/ForgotPassword";
 import PaymentMethod from "./pages/PaymentMethod";
 import CheckCode from "./pages/CheckCode";
+import UserTokenContextProvider from "./Context/UserTokenContext";
+import ProtectedRoutesRegister from "./Components/ProtectedRoutesRegister";
 
 
 
 function App() {
   return (
-    <ContextProvider>
+    <UserTokenContextProvider>
       <Router>
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/forgetPassword" element={<ForgotPassword/>} />
-          <Route path="/CheckCode" element={<CheckCode/>} />
-          <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-          <Route path="/controltrip" element={<ProtectedRoute><ControlTrip/></ProtectedRoute>} />
-          <Route path="/currentOrders" element={<ProtectedRoute><CurrentOrders /></ProtectedRoute>} />
-          <Route path="/captiansrequest" element={<ProtectedRoute><CaptianRequests /></ProtectedRoute>} />
-          <Route path="/clientTable" element={<ProtectedRoute><ClientsTable/> </ProtectedRoute>} />
-          <Route path="/captians" element={ <ProtectedRoute><CaptianTable/> </ProtectedRoute>} />
-          <Route path="/liveMap" element={ <ProtectedRoute><LiveMap/> </ProtectedRoute>} />
-          <Route path="/paymentMethod" element={ <ProtectedRoute><PaymentMethod/> </ProtectedRoute>} />
-          <Route path="/addPromo" element={ <ProtectedRoute><AddPromoCode/> </ProtectedRoute>} />
-          <Route path="/moderators" element={ <ProtectedRoute><Moderators/> </ProtectedRoute>} />
-          <Route path="/topcaptianspage" element={ <ProtectedRoute><TopCaptains/> </ProtectedRoute>} />
+          <Route path="/login" element={<ProtectedRoutesRegister><Login /></ProtectedRoutesRegister>} />
+          <Route path="/forgetPassword" element={<ProtectedRoutesRegister><ForgotPassword/> </ProtectedRoutesRegister>} />
+          <Route path="/CheckCode" element={<ProtectedRoutesRegister><CheckCode/></ProtectedRoutesRegister> } />
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/controltrip" element={<ControlTrip/>} />
+          <Route path="/currentOrders" element={<CurrentOrders />} />
+          <Route path="/captiansrequest" element={<CaptianRequests />} />
+          <Route path="/clientTable" element={<ClientsTable/> } />
+          <Route path="/captians" element={<CaptianTable/>} />
+          <Route path="/liveMap" element={<LiveMap/>} />
+          <Route path="/paymentMethod" element={<PaymentMethod/>} />
+          <Route path="/addPromo" element={<AddPromoCode/> } />
+          <Route path="/moderators" element={ <Moderators/> } />
+          <Route path="/topcaptianspage" element={<TopCaptains/>} />
         </Routes>
       </Router>
-    </ContextProvider>
+     </UserTokenContextProvider>
+    
   );
 }
 

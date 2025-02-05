@@ -6,21 +6,20 @@ import { IoIosTimer } from "react-icons/io";
 import { GoGitPullRequest } from "react-icons/go";
 import { MdOutlinePayment } from "react-icons/md";
 import { CiDiscount1 } from "react-icons/ci";
-import Avatar from './Avatar'; 
-import { useAuth } from './Auth';
+// import Avatar from './Avatar'; 
 const Sidebar = () => {
-  const auth = useAuth();
+  
   return (
     <>
       <div className="w-64 bg-gradient-to-b from-blue-700 to-blue-800 text-white">
-        <div className="flex items-center gap-3 mb-8 px-6 pt-5">
+        {/* <div className="flex items-center gap-3 mb-8 px-6 pt-5">
           <Avatar src="/placeholder.svg" alt="Profile" fallback="MH" />
           <div>
             <h2 className="font-semibold">{auth.user?.username}</h2>
             <p className="text-xs opacity-70">+99 (99) 429-45-15</p>
           </div>
-        </div>
-        <div className="flex items-center justify-start text-gray-300 px-6 mb-1">
+        </div> */}
+        <div className="flex items-center justify-start text-gray-300 px-6  mt-8 mb-6">
           Main menu
         </div>
 

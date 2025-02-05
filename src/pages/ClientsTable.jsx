@@ -1,22 +1,13 @@
 
 // ClientsTable.js
 import React, { useState } from "react";
-import { useAuth } from '../Components/Auth';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 import Sidebar from '../Components/Sidebar';
 import TransferAmount from "../Components/TransferAmount";
 import Head from "../Components/Head";
 
 const ClientsTable = () => {
-    const auth = useAuth();
     const navigate = useNavigate();
-
-    useEffect(() => {
-        if (!auth.user) {
-            navigate("/login", { replace: true }); // إعادة التوجيه إذا لم يكن هناك مستخدم مسجل
-        }
-    }, [auth.user, navigate]);
 
     const data1 = [
         { user: "Ahmed", phone: "+20 123 456 789", kindOfTrip: "economy", orderedTime: "10.11.2024 18:30", startLocation: "Cairo Downtown", finishLocation: "Giza Pyramids", cost: "150$", totalTrips: "45", totalCompleted: "40" },

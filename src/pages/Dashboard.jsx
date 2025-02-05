@@ -3,19 +3,14 @@ import Sidebar from '../Components/Sidebar';
 import Card from '../Components/Card';
 import TopCaptainsTable from '../Components/TopCaptainsTable';
 import Statistics from '../Components/Statistics'; 
-import { useAuth } from '../Components/Auth';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+
 import Head from '../Components/Head';
 function Dashboard() {
-  const auth = useAuth();
+
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!auth.user) {
-      navigate("/login", { replace: true }); 
-    }
-  }, [auth.user, navigate]);
+
   return (
     <>
       <div className="flex h-screen bg-white">

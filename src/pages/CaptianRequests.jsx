@@ -8,20 +8,13 @@ import PhotoDrivingback from '../Components/PhotoDrivingback';
 import ProfilePhotoDriving from '../Components/ProfilePhotoDriving';
 import PhotoNationalFront from '../Components/PhotoNationalFront';
 import PhotoNationalBack from '../Components/PhotoNationalBack';
-import { useAuth } from '../Components/Auth';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 import Head from '../Components/Head';
 
 const CaptianRequests = () => {
-  const auth = useAuth();
+  
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!auth.user) {
-      navigate("/login", { replace: true }); // إعادة التوجيه إذا لم يكن هناك مستخدم مسجل
-    }
-  }, [auth.user, navigate]);
 
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isProfilePhotoOpen, setIsProfilePhotoOpen] = useState(false);
